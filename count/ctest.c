@@ -9,7 +9,6 @@
  
     Copyright 2012 iDB Support - http://idb.berlios.de/
     Copyright 2012 Game Maker 2k - http://gamemaker2k.org/
-    C iUnTar ver. 1.2.4 by Kazuki Przyborowski
  
     $FileInfo: count.c - Last Update: 03/24/2012 Ver 1 - Author: cooldude2k $
 */
