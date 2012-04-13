@@ -91,7 +91,7 @@ int untar(char *tarfile, char *outdir, int chmod, bool extract)
 	if(FileType==5) {
 	char FileContent[1];
 	strcpy(FileContent, "");
-	fprintf(stdout, "inflating dir %s\n", FullFileName);
+	fprintf(stdout, "inflating dir  %s\n", FullFileName);
 	mkdir(FullFileName, 0755); } }
 	if(extract==false) {
 	if(FileType==0||FileType==7) {
