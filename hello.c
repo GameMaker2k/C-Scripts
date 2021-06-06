@@ -9,22 +9,47 @@ int main(int argc, char *argv[])
     #ifdef __GNUC__
      #ifdef __clang__
       #ifdef __cplusplus
-       char compiler[] = "Clang++";
+       #ifdef __OBJC__
+        char compiler[] = "ObjClang++";
+       #endif
+       #ifndef __OBJC__
+        char compiler[] = "Clang++";
+       #endif
       #endif
       #ifndef __cplusplus
-       char compiler[] = "Clang";
+       #ifdef __OBJC__
+        char compiler[] = "ObjClang";
+       #endif
+       #ifndef __OBJC__
+        char compiler[] = "Clang";
+       #endif
       #endif
      #endif
      #ifndef __clang__
       #ifdef __GNUG__
-       char compiler[] = "G++";
+       #ifdef __OBJC__
+        char compiler[] = "ObjG++";
+       #endif
+       #ifndef __OBJC__
+        char compiler[] = "G++";
+       #endif
       #endif
       #ifndef __GNUG__
        #ifdef __cplusplus
-        char compiler[] = "G++";
+        #ifdef __OBJC__
+         char compiler[] = "ObjG++";
+        #endif
+        #ifndef __OBJC__
+         char compiler[] = "G++";
+        #endif
        #endif
        #ifndef __cplusplus
-        char compiler[] = "GCC";
+        #ifdef __OBJC__
+         char compiler[] = "ObjGCC";
+        #endif
+        #ifndef __OBJC__
+         char compiler[] = "GCC";
+        #endif
        #endif
       #endif
      #endif
