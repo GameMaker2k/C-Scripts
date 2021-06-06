@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main(int argc, char *argv[])
+{
    // printf() displays the string inside quotation
    #ifdef __TINYC__
     printf("Hello, World!\nFrom TinyCC.\n");
