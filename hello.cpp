@@ -101,6 +101,6 @@ int main(int argc, char *argv[])
     #endif
    #endif
    // printf() displays the string inside quotation
-   printf("Hello, World!\nCompiler: %s.\nLanguage: %s\n", compiler, language);
+   printf("Hello, World!\nCompiler: %s.\nLanguage: %s.\n", compiler, language);
    return 0;
 }
