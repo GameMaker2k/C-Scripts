@@ -2,6 +2,7 @@
 
 int main(int argc, char *argv[])
 {
+   // printf() displays the string inside quotation
    #ifdef __TINYC__
     char compiler[] = "TinyCC";
    #endif
@@ -39,16 +40,25 @@ int main(int argc, char *argv[])
       #endif
      #endif
      #ifndef _MSC_VER
-      #ifdef __cplusplus
-       char compiler[] = "Somewhere++";
+      #ifdef __INTEL_COMPILER
+       #ifdef __cplusplus
+        char compiler[] = "ICC++";
+       #endif
+       #ifndef __cplusplus
+        char compiler[] = "ICC";
+       #endif
       #endif
-      #ifndef __cplusplus
-       char compiler[] = "Somewhere";
+      #ifndef __INTEL_COMPILER
+       #ifdef __cplusplus
+        char compiler[] = "Somewhere++";
+       #endif
+       #ifndef __cplusplus
+        char compiler[] = "Somewhere";
+       #endif
       #endif
      #endif
     #endif
    #endif
-   // printf() displays the string inside quotation
    printf("Hello, World!\nFrom %s.\n", compiler);
    return 0;
 }
