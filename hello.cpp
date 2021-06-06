@@ -1,3 +1,18 @@
+/*
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the Revised BSD License.
+ 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    Revised BSD License for more details.
+ 
+    Copyright 2021 iDB Support - http://idb.berlios.de/
+    Copyright 2021 Game Maker 2k - http://gamemaker2k.org/
+ 
+    $FileInfo: hello.cpp - Last Update: 06/06/2021 Ver 1 - Author: cooldude2k $
+*/
+
 #include <stdio.h>
 
 int main(int argc, char *argv[])
