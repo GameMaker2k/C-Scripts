@@ -4,28 +4,28 @@ int main(int argc, char *argv[])
 {
    // printf() displays the string inside quotation
    #ifdef __TINYC__
-    std::printf("Hello, World!\nFrom TinyCC.\n");
+    char compiler[] = "TinyCC";
    #endif
    #ifndef __TINYC__
     #ifdef __GNUC__
      #ifdef __clang__
       #ifdef __cplusplus
-       std::printf("Hello, World!\nFrom Clang++.\n");
+       char compiler[] = "Clang++";
       #endif
       #ifndef __cplusplus
-       std::printf("Hello, World!\nFrom Clang.\n");
+       char compiler[] = "Clang";
       #endif
      #endif
      #ifndef __clang__
       #ifdef __GNUG__
-       std::printf("Hello, World!\nFrom G++.\n");
+       char compiler[] = "G++";
       #endif
       #ifndef __GNUG__
        #ifdef __cplusplus
-        std::printf("Hello, World!\nFrom G++.\n");
+        char compiler[] = "G++";
        #endif
        #ifndef __cplusplus
-        std::printf("Hello, World!\nFrom GCC.\n");
+        char compiler[] = "GCC";
        #endif
       #endif
      #endif
@@ -33,21 +33,22 @@ int main(int argc, char *argv[])
     #ifndef __GNUC__
      #ifdef _MSC_VER
       #ifdef __cplusplus
-       std::printf("Hello, World!\nFrom MSVC++.\n");
+       char compiler[] = "MSVC++";
       #endif
       #ifndef __cplusplus
-       std::printf("Hello, World!\nFrom MSVC.\n");
+       char compiler[] = "MSVC";
       #endif
      #endif
      #ifndef _MSC_VER
       #ifdef __cplusplus
-       std::printf("Hello, World!\nFrom Somewhere++.\n");
+       char compiler[] = "Somewhere++";
       #endif
       #ifndef __cplusplus
-       std::printf("Hello, World!\nFrom Somewhere.\n");
+       char compiler[] = "Somewhere";
       #endif
      #endif
     #endif
    #endif
+   printf("Hello, World!\nFrom %s.\n", compiler);
    return 0;
 }
