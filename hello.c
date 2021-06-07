@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
     #endif
    }
    #ifdef __arm__
-    #ifdef __arm__
+    #ifndef __aarch64__
      char architecture[] = "Arm32";
      archset = 1;
     #endif
