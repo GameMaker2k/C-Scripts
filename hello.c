@@ -20,7 +20,86 @@
 int main(int argc, char *argv[])
 {
    int sysset = 0;
+
+   #ifdef _AIX
+    char system[] = "Aix";
+    sysset = 1;
+   #endif
+   #ifdef __ANDROID__
+    char system[] = "Android";
+    sysset = 1;
+   #endif
+   #ifdef __FreeBSD__
+    char system[] = "FreeBSD";
+    sysset = 1;
+   #endif
+   #ifdef __FreeBSD_kernel__
+    #ifdef __GLIBC__
+     char system[] = "GNUkFreeBSD";
+     sysset = 1;
+    #endif
+   #endif
+   #ifdef __NetBSD__
+    char system[] = "NetBSD";
+    sysset = 1;
+   #endif
+   #ifdef __OpenBSD__
+    char system[] = "OpenBSD";
+    sysset = 1;
+   #endif
+   #ifdef __bsdi__
+    char system[] = "BSDi";
+    sysset = 1;
+   #endif
+   #ifdef __DragonFly__
+    char system[] = "DragonFlyBSD";
+    sysset = 1;
+   #endif
+   #ifdef __gnu_hurd__
+    char system[] = "GNUHurd";
+    sysset = 1;
+   #endif
+   #ifdef __linux__
+    char system[] = "Linux";
+    sysset = 1;
+   #endif
+   #ifndef __linux__
+    #ifdef __gnu_linux__
+     char system[] = "GNULinux";
+     sysset = 1;
+    #endif
+   #endif
+   #ifdef macintosh
+    char system[] = "MacOS9";
+    sysset = 1;
+   #endif
+   #ifdef __APPLE__
+    char system[] = "MacOSX";
+    sysset = 1;
+   #endif
+   #ifdef __minix
+    char system[] = "Minix";
+    sysset = 1;
+   #endif
+   if(sysset==0)
+   {
+    #ifdef __unix__
+     char system[] = "Unix";
+     sysset = 1;
+    #endif
+   }
+   if(sysset==0)
+   {
+    #ifdef __unix
+     char system[] = "Unix";
+     sysset = 1;
+    #endif
+   }
    #ifdef __TINYC__
+    #ifdef _WIN16
+     char system[] = "Win16";
+     sysset = 1;
+    #endif
     #ifdef _WIN32
      #ifndef _WIN64
       char system[] = "Win32";
@@ -37,6 +116,10 @@ int main(int argc, char *argv[])
    #ifndef __TINYC__
     #ifdef __GNUC__
      #ifdef __clang__
+      #ifdef _WIN16
+       char system[] = "Win16";
+       sysset = 1;
+      #endif
       #ifdef _WIN32
        #ifndef _WIN64
         char system[] = "Win32";
@@ -168,6 +251,20 @@ int main(int argc, char *argv[])
      #endif
     #endif
     #ifndef __GNUC__
+     #ifdef _WIN16
+      char system[] = "Win16";
+      sysset = 1;
+     #endif
+     #ifdef _WIN32
+      #ifndef _WIN64
+       char system[] = "Win32";
+       sysset = 1;
+      #endif
+     #endif
+     #ifdef _WIN64
+      char system[] = "Win64";
+      sysset = 1;
+     #endif
      #ifdef _MSC_VER
       #ifdef __cplusplus
        char compiler[] = "MSVC++";
