@@ -23,7 +23,232 @@
 int main(int argc, char *argv[])
 {
    int sysset = 0;
+   int archset = 0;
 
+   #ifdef __i386__
+    char architecture[] = "IA32";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef __i486__
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __i586__
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __i686__
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _M_I86
+     char architecture[] = "IA16";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _M_IX86
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __X86__
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _X86_
+     char architecture[] = "IA32";
+     archset = 1;
+    #endif
+   }
+   #ifdef __amd64__
+    char architecture[] = "AMD64";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef __amd64
+     char architecture[] = "AMD64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __x86_64__
+     char architecture[] = "AMD64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __x86_64
+     char architecture[] = "AMD64";
+     archset = 1;
+    #endif
+   }
+   #ifdef __arm__
+    #ifdef __arm__
+     char architecture[] = "Arm32";
+     archset = 1;
+    #endif
+   #endif
+   #ifdef __aarch64__
+    char architecture[] = "Arm64";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef __thumb__
+     char architecture[] = "Thumb";
+     archset = 1;
+    #endif
+   }
+   #ifdef __ia64__
+    char architecture[] = "IA64";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef _IA64
+     char architecture[] = "IA64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __IA64__
+     char architecture[] = "IA64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _M_IA64
+     char architecture[] = "IA64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _M_IA64
+     char architecture[] = "IA64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __itanium__
+     char architecture[] = "IA64";
+     archset = 1;
+    #endif
+   }
+   #ifdef __mips__
+    char architecture[] = "MIPS";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef mips
+     char architecture[] = "MIPS";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __mips
+     char architecture[] = "MIPS";
+     archset = 1;
+    #endif
+   }
+   #ifdef __powerpc
+    char architecture[] = "PowerPC";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef __powerpc__
+     char architecture[] = "PowerPC";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __powerpc64__
+     char architecture[] = "PowerPC64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __POWERPC__
+     char architecture[] = "PowerPC";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __ppc__
+     char architecture[] = "PowerPC";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef __ppc64__
+     char architecture[] = "PowerPC64";
+     archset = 1;
+    #endif
+   }
+
+   #ifdef __PPC__
+    char architecture[] = "PowerPC";
+    archset = 1;
+   #endif
+   if(archset==0)
+   {
+    #ifdef __PPC64__
+     char architecture[] = "PowerPC64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _ARCH_PPC
+     char architecture[] = "PowerPC";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _ARCH_PPC64
+     char architecture[] = "PowerPC64";
+     archset = 1;
+    #endif
+   }
+   if(archset==0)
+   {
+    #ifdef _M_PPC
+     char architecture[] = "PowerPC";
+     archset = 1;
+    #endif
+   }
    #ifdef _AIX
     char system[] = "Aix";
     sysset = 1;
@@ -291,11 +516,11 @@ int main(int argc, char *argv[])
       #endif
       #ifndef __INTEL_COMPILER
        #ifdef __cplusplus
-        char compiler[] = "Somewhere++";
+        char compiler[] = "Something++";
         char language[] = "C++";
        #endif
        #ifndef __cplusplus
-        char compiler[] = "Somewhere";
+        char compiler[] = "Something";
         char language[] = "C";
        #endif
       #endif
@@ -307,7 +532,12 @@ int main(int argc, char *argv[])
     char system[] = "Something";
     sysset = 1;
    }
+   if(archset==0)
+   {
+    char architecture[] = "Something";
+    sysset = 1;
+   }
    // printf() displays the string inside quotation
-   printf("Hello, World!\nSystem: %s\nCompiler: %s\nLanguage: %s\n", system, compiler, language);
+   printf("Hello, World!\nSystem: %s\nArchitecture: %s\nCompiler: %s\nLanguage: %s\n", system, architecture, compiler, language);
    return 0;
 }
