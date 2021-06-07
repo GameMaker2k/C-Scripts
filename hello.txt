@@ -1,8 +1,9 @@
+cp -v ./hello.c ./hello.cpp
 gcc ./hello.c -o ./hello-gcc
 g++ ./hello.cpp -o ./hello-g++
 clang ./hello.c -o ./hello-clang
 clang++ ./hello.cpp -o ./hello-clang++
 tcc ./hello.c -o ./hello-tcc
 
-gcc ./hello.c -o ./hello-gcc; g++ ./hello.cpp -o ./hello-g++; clang ./hello.c -o ./hello-clang; clang++ ./hello.cpp -o ./hello-clang++; tcc ./hello.c -o ./hello-tcc;
+cp -v ./hello.c ./hello.cpp; gcc ./hello.c -o ./hello-gcc; g++ ./hello.cpp -o ./hello-g++; clang ./hello.c -o ./hello-clang; clang++ ./hello.cpp -o ./hello-clang++; tcc ./hello.c -o ./hello-tcc;
 ./hello-gcc; ./hello-g++; ./hello-clang; ./hello-clang++; ./hello-tcc;
