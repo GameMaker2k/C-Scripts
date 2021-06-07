@@ -17,6 +17,7 @@
 
 int main(int argc, char *argv[])
 {
+   int sysset = 0;
    #ifdef __TINYC__
     char compiler[] = "TinyCC";
     char language[] = "C";
@@ -47,6 +48,38 @@ int main(int argc, char *argv[])
      #endif
      #ifndef __clang__
       #ifdef __GNUG__
+       #ifdef __MINGW32__
+        #ifndef __MINGW64__
+         char system[] = "MinGW32";
+         sysset = 1;
+        #endif
+       #endif
+       #ifdef __MINGW64__
+        char system[] = "MinGW64";
+        sysset = 1;
+       #endif
+       #ifdef __CYGWIN32__
+        #ifndef __CYGWIN64__
+         char system[] = "CygWin32";
+         sysset = 1;
+        #endif
+       #endif
+       #ifdef __CYGWIN64__
+        char system[] = "CygWin64";
+        sysset = 1;
+       #endif
+       #ifdef __CYGWIN__
+        #ifndef __CYGWIN32__
+         #ifndef __CYGWIN64__
+          char system[] = "CygWin32";
+          sysset = 1;
+         #endif
+        #endif
+       #endif
+       #ifdef __DJGPP__
+        char system[] = "DJGPP";
+        sysset = 1;
+       #endif
        #ifdef __OBJC__
         char compiler[] = "ObjG++";
         char language[] = "ObjC++";
@@ -57,6 +90,38 @@ int main(int argc, char *argv[])
        #endif
       #endif
       #ifndef __GNUG__
+       #ifdef __MINGW32__
+        #ifndef __MINGW64__
+         char system[] = "MinGW32";
+         sysset = 1;
+        #endif
+       #endif
+       #ifdef __MINGW64__
+        char system[] = "MinGW64";
+        sysset = 1;
+       #endif
+       #ifdef __CYGWIN32__
+        #ifndef __CYGWIN64__
+         char system[] = "CygWin32";
+         sysset = 1;
+        #endif
+       #endif
+       #ifdef __CYGWIN64__
+        char system[] = "CygWin64";
+        sysset = 1;
+       #endif
+       #ifdef __CYGWIN__
+        #ifndef __CYGWIN32__
+         #ifndef __CYGWIN64__
+          char system[] = "CygWin32";
+          sysset = 1;
+         #endif
+        #endif
+       #endif
+       #ifdef __DJGPP__
+        char system[] = "DJGPP";
+        sysset = 1;
+       #endif
        #ifdef __cplusplus
         #ifdef __OBJC__
          char compiler[] = "ObjG++";
@@ -115,7 +180,12 @@ int main(int argc, char *argv[])
      #endif
     #endif
    #endif
+   if(sysset==0)
+   {
+    char system[] = "Something";
+    sysset = 1;
+   }
    // printf() displays the string inside quotation
-   printf("Hello, World!\nCompiler: %s.\nLanguage: %s.\n", compiler, language);
+   printf("Hello, World!\nSystem: %s\nCompiler: %s\nLanguage: %s\n", system, compiler, language);
    return 0;
 }
