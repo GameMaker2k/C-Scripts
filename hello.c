@@ -15,16 +15,38 @@
 
 #include <stdio.h>
 
+#include <stdio.h>
+
 int main(int argc, char *argv[])
 {
    int sysset = 0;
    #ifdef __TINYC__
+    #ifdef _WIN32
+     #ifndef _WIN64
+      char system[] = "Win32";
+      sysset = 1;
+     #endif
+    #endif
+    #ifdef _WIN64
+     char system[] = "Win64";
+     sysset = 1;
+    #endif
     char compiler[] = "TinyCC";
     char language[] = "C";
    #endif
    #ifndef __TINYC__
     #ifdef __GNUC__
      #ifdef __clang__
+      #ifdef _WIN32
+       #ifndef _WIN64
+        char system[] = "Win32";
+        sysset = 1;
+       #endif
+      #endif
+      #ifdef _WIN64
+       char system[] = "Win64";
+       sysset = 1;
+      #endif
       #ifdef __cplusplus
        #ifdef __OBJC__
         char compiler[] = "ObjClang++";
