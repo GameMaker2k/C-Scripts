@@ -535,7 +535,7 @@ int main(int argc, char *argv[])
    if(archset==0)
    {
     char architecture[] = "Something";
-    sysset = 1;
+    archset = 1;
    }
    // printf() displays the string inside quotation
    printf("Hello, World!\nSystem: %s\nArchitecture: %s\nCompiler: %s\nLanguage: %s\n", system, architecture, compiler, language);
