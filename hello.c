@@ -15,7 +15,10 @@
 
 #include <stdio.h>
 
-#include <stdio.h>
+/*
+    https://sourceforge.net/p/predef/wiki/Compilers/
+    https://sourceforge.net/p/predef/wiki/OperatingSystems/
+*/
 
 int main(int argc, char *argv[])
 {
