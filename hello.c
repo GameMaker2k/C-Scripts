@@ -287,9 +287,11 @@ int main(int argc, char *argv[])
     char system[] = "GNUHurd";
     sysset = 1;
    #endif
-   #ifdef __linux__
-    char system[] = "Linux";
-    sysset = 1;
+   #ifndef __ANDROID__
+    #ifdef __linux__
+     char system[] = "Linux";
+     sysset = 1;
+    #endif
    #endif
    #ifndef __linux__
     #ifdef __gnu_linux__
