@@ -249,6 +249,11 @@ int main(int argc, char *argv[])
      archset = 1;
     #endif
    }
+   if(archset==0)
+   {
+    char architecture[] = "Unknown";
+    archset = 1;
+   }
    #ifdef _AIX
     char system[] = "Aix";
     sysset = 1;
@@ -324,6 +329,11 @@ int main(int argc, char *argv[])
      char system[] = "Unix";
      sysset = 1;
     #endif
+   }
+   if(sysset==0)
+   {
+    char system[] = "Unknown";
+    sysset = 1;
    }
    #ifdef __TINYC__
     #ifdef _WIN16
@@ -518,11 +528,11 @@ int main(int argc, char *argv[])
       #endif
       #ifndef __INTEL_COMPILER
        #ifdef __cplusplus
-        char compiler[] = "Something++";
+        char compiler[] = "Unknown++";
         char language[] = "C++";
        #endif
        #ifndef __cplusplus
-        char compiler[] = "Something";
+        char compiler[] = "Unknown";
         char language[] = "C";
        #endif
       #endif
